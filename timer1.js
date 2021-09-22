@@ -6,9 +6,12 @@ const alarms = process.argv.slice(2).map( x => x*1000).sort((a, b) => { return a
 
 const alarmFunc = (alarmParam) => {
   for (const alarm of alarmParam) {
-    setTimeout(() => {
-      console.log(`hello this is the timer here to wake you`)
-    }, alarm)
+    if(alarm <= 0 || isNaN(alarm)) {
+    } else {
+      setTimeout(() => {
+        console.log(`hello this is the timer here to wake you`)
+      }, alarm)
+    }
   }
   return
 }
